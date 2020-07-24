@@ -1,22 +1,31 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <div class="home">
+      <div class="logo">
+        <h1>Shrinkr</h1>
+      </div>
+      <div class="url-input">
+        <input type="text" placeholder="Enter url here">
+      </div>
+      <div class="shrink-button">
+        <button> Shrink </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
-  }
+
 }
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
 }
 </style>
