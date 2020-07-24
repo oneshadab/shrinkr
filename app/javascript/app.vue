@@ -43,7 +43,10 @@ export default {
   .url-input {
     input {
       font-size: 30px;
+      font-family: SquadaOne;
+
       border-radius: 50px;
+
       padding: 15px 25px;
 
       &:focus {
@@ -54,12 +57,16 @@ export default {
 
   .shrink-button {
     button {
-      background-color: #2D9CDB;
-      color: white;
-      font-size: 30px;
-      border-radius: 50px;
       min-width: 150px;
+
+      color: white;
+      background-color: #2D9CDB;
+
+      border-radius: 50px;
       border: none;
+
+      font-family: SquadaOne;
+      font-size: 30px;
     }
   }
 }
