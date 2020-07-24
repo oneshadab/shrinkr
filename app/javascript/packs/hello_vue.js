@@ -7,12 +7,16 @@
 
 import Vue from 'vue'
 import App from '../app.vue'
+import axios from 'axios'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     render: h => h(App)
   }).$mount()
   document.body.appendChild(app.$el)
+
+  // Add csrf token to axios once page has loaded
+  axios.defaults.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
   console.log(app)
 })
