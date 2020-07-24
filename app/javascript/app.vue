@@ -22,6 +22,8 @@ export default {
 
 <style scoped lang="scss">
 .home {
+  font-family: SquadaOne;
+
   display: flex;
   justify-content: center;
   align-items: center;
