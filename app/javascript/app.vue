@@ -1,3 +1,4 @@
+
 <template>
   <div id="app">
     <div class="home">
@@ -5,18 +6,31 @@
         <h1>Shrinkr</h1>
       </div>
       <div class="url-input">
-        <input type="text" placeholder="Enter url here">
+        <input type="text" placeholder="Enter url here" v-model="url">
       </div>
       <div class="shrink-button">
-        <button> Shrink </button>
+        <button v-on:click="handleShrink()">Shrink</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
+import { shrinkUrl } from './service';
 
+export default {
+  methods: {
+    async handleShrink() {
+      const newUrl = await shrinkUrl(this.url);
+      this.url = newUrl;
+    }
+  },
+
+  data() {
+    return {
+      url: undefined,
+    }
+  }
 }
 </script>
 
@@ -34,9 +48,14 @@ export default {
   width: 100vw;
 
   .logo {
+    margin-bottom: 64px;
+
     h1 {
-      font-size: 189px;
+      font-size: 120px;
+      font-weight: normal;
+
       color: white;
+      margin: 0;
     }
   }
 
@@ -49,6 +68,10 @@ export default {
 
       padding: 15px 25px;
 
+      min-width: 600px;
+
+      margin-bottom: 16px;
+
       &:focus {
         outline: none;
       }
@@ -57,7 +80,7 @@ export default {
 
   .shrink-button {
     button {
-      min-width: 150px;
+      min-width: 250px;
 
       color: white;
       background-color: #2D9CDB;
@@ -66,7 +89,13 @@ export default {
       border: none;
 
       font-family: SquadaOne;
-      font-size: 30px;
+      font-size: 40px;
+
+      padding: 8px 32px;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 }
