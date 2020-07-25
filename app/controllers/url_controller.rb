@@ -11,6 +11,11 @@ class UrlController < ApplicationController
     render plain: _shrunk_url_for(shrunk_url)
   end
 
+  def goto
+    redirect_to('http://www.google.com')
+  end
+
+
   def _shrunk_url_for(url_guid)
     new_url = url_for(
       :controller => 'url',
