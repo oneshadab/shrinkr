@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post '/api/shrink/:url', to: 'url#shrink'
+  post '/api/shrink', to: 'url#shrink'
 
   get '/:guid', to: 'url#goto', as: 'goto'
   root 'home#index'
