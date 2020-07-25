@@ -4,15 +4,16 @@ class UrlController < ApplicationController
   def shrink
     original_url = params[:url]
     url_digest = Digest::SHA2.hexdigest original_url
-    shrunk_url = url_digest[0..3]
+    shrunk_guid = url_digest[0..3]
 
-    # Url.create(original: original_url, shrunk: shrunk_url)
+    Url.create(original: original_url, shrunk: shrunk_guid)
 
-    render plain: _shrunk_url_for(shrunk_url)
+    render plain: _shrunk_url_for(shrunk_guid)
   end
 
   def goto
-    redirect_to('http://www.google.com')
+    url = Url.find_by(shrunk: params[:guid])
+    redirect_to(url.original)
   end
 
 
