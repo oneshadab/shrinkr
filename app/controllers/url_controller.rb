@@ -8,9 +8,14 @@ class UrlController < ApplicationController
     new_url = url_for(
       :controller => 'url',
       :action => 'goto',
-      :guid => url_guid
+      :guid => url_guid,
     )
 
+    new_url = _remove_prococol(new_url)
     render plain: new_url
+  end
+
+  def _remove_prococol(url)
+    return url.split('://')[1..].join('://')
   end
 end
