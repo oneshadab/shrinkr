@@ -4,7 +4,7 @@ class UrlController < ApplicationController
   def shrink
     original_url = params[:url]
     url = Url.get_or_create(original: original_url)
-    render plain: digest_to_url(url.digest)
+    render plain: shrunk_url_of(url)
   end
 
   def goto
@@ -12,8 +12,8 @@ class UrlController < ApplicationController
     redirect_to(cleaned(url.original))
   end
 
-  def digest_to_url(digest)
-    shrunk_url = url_for(controller: 'url', action: 'goto', digest: digest)
+  def shrunk_url_of(url)
+    shrunk_url = url_for(controller: 'url', action: 'goto', digest: url.digest)
     shrunk_url = remove_protocol(shrunk_url)
     return shrunk_url
   end
