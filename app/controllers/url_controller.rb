@@ -24,11 +24,25 @@ class UrlController < ApplicationController
       :guid => url_guid,
     )
 
-    new_url = _remove_prococol(new_url)
+    new_url = _remove_protocol(new_url)
     return new_url
   end
 
-  def _remove_prococol(url)
+  def _set_protocol(url, protocol)
+    return protocol + "://" + _remove_protocol(url) # Remove any existing protocols
+  end
+
+
+  def _remove_protocol(url)
+    if !_has_protocol(url)
+      return url
+    end
+
     return url.split('://')[1..].join('://')
   end
+
+  def _has_protocol(url)
+    return url.split('://').length > 1
+  end
+
 end
