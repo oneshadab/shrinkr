@@ -1,14 +1,11 @@
-require 'digest'
-
 class UrlController < ApplicationController
   include UrlHelper
 
   def shrink
     original_url = params[:url]
-    url_digest = Digest::SHA2.hexdigest original_url
-    short_url_digest = url_digest[0..3]
+    digest = generate_digest(original_url)
 
-    url = Url.create(original: original_url, digest: short_url_digest)
+    url = Url.create(original: original_url, digest: digest)
     render plain: digest_to_url(url.digest)
   end
 

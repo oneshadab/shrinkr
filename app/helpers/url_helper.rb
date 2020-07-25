@@ -1,3 +1,5 @@
+require 'digest'
+
 module UrlHelper
   def cleaned(url)
     if has_protocol(url)
@@ -22,5 +24,11 @@ module UrlHelper
 
   def has_protocol(url)
     return url.split('://').length > 1
+  end
+
+  def generate_digest(url)
+    url_digest = Digest::SHA2.hexdigest url
+    short_url_digest = url_digest[0..3]
+    return short_url_digest
   end
 end
