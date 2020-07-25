@@ -3,9 +3,7 @@ class UrlController < ApplicationController
 
   def shrink
     original_url = params[:url]
-    digest = generate_digest(original_url)
-
-    url = Url.create(original: original_url, digest: digest)
+    url = Url.get_or_create(original: original_url)
     render plain: digest_to_url(url.digest)
   end
 
