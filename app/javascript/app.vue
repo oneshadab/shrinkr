@@ -27,9 +27,7 @@ export default {
       this.status = "shrinking";
 
       try {
-        const newUrl = await shrinkUrl(this.url);
-        this.url = newUrl;
-
+        this.url =  await shrinkUrl(this.url);
         this.status = "completed";
       }
       catch {
