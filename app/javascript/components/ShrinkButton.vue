@@ -2,7 +2,7 @@
   <div class="shrink-button">
     <button
       class="status--idle"
-      v-if="status === 'idle'"
+      v-show="status === 'idle'"
       v-on:click="onShrink()"
     >
       Shrink
@@ -10,7 +10,7 @@
 
     <button
       class="status--shrinking"
-      v-if="status === 'shrinking'"
+      v-show="status === 'shrinking'"
     >
       <img :src="spinnerIcon" />
       Shrinking...
@@ -18,7 +18,7 @@
 
     <button
       class="status--completed"
-      v-if="status === 'completed'"
+      v-show="status === 'completed'"
     >
       <img :src="checkIcon" />
       Url copied to clipboard!
@@ -26,7 +26,7 @@
 
     <button
       class="status--failed"
-      v-if="status === 'failed'"
+      v-show="status === 'failed'"
     >
       <img :src="alertIcon" />
       Something went wrong!
