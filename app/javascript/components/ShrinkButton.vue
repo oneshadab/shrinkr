@@ -1,0 +1,34 @@
+<template>
+  <div class="shrink-button">
+    <button v-if="status === 'waiting'" v-on:click="onShrink()">Shrink</button>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['status', 'onShrink'],
+}
+</script>
+
+<style scoped lang="scss">
+.shrink-button {
+  button {
+    min-width: 250px;
+
+    color: white;
+    background-color: #2D9CDB;
+
+    border-radius: 50px;
+    border: none;
+
+    font-family: SquadaOne;
+    font-size: 40px;
+
+    padding: 8px 32px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+</style>

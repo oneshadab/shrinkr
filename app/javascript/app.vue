@@ -8,17 +8,20 @@
       <div class="url-input">
         <input type="text" placeholder="Enter url here" v-model="url">
       </div>
-      <div class="shrink-button">
-        <button v-on:click="handleShrink()">Shrink</button>
-      </div>
+      <shrink-button :status="status" :on-shrink="handleShrink" />
     </div>
   </div>
 </template>
 
 <script>
+import ShrinkButton from './components/ShrinkButton.vue';
 import { shrinkUrl } from './service';
 
 export default {
+  components:{
+    'shrink-button': ShrinkButton
+  }
+  ,
   methods: {
     async handleShrink() {
       const newUrl = await shrinkUrl(this.url);
@@ -29,6 +32,7 @@ export default {
   data() {
     return {
       url: undefined,
+      status: "waiting",
     }
   }
 }
@@ -71,27 +75,6 @@ export default {
       min-width: 600px;
 
       margin-bottom: 16px;
-
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-
-  .shrink-button {
-    button {
-      min-width: 250px;
-
-      color: white;
-      background-color: #2D9CDB;
-
-      border-radius: 50px;
-      border: none;
-
-      font-family: SquadaOne;
-      font-size: 40px;
-
-      padding: 8px 32px;
 
       &:focus {
         outline: none;
