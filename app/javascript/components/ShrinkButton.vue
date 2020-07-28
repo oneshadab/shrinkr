@@ -20,6 +20,7 @@
       class="status--completed"
       v-if="status === 'completed'"
     >
+      <img :src="checkIcon" />
       Url copied to clipboard!
     </button>
 
@@ -34,12 +35,15 @@
 
 <script>
 import spinnerIcon from 'images/icons/spinner.svg';
+import checkIcon from 'images/icons/check.svg';
+
 
 export default {
   props: ['status', 'onShrink'],
   data() {
     return {
-      spinnerIcon
+      spinnerIcon,
+      checkIcon
     }
   }
 }
@@ -67,6 +71,7 @@ export default {
     }
 
     img {
+      color: white;
       height: 40px;
     }
 
