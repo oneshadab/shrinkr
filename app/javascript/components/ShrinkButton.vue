@@ -42,8 +42,6 @@ export default {
   button {
     min-width: 250px;
 
-
-
     border-radius: 50px;
     border: none;
 
@@ -57,7 +55,12 @@ export default {
     }
 
     &.status {
+
       &--idle {
+        &:hover {
+          cursor: pointer;
+        }
+
         color: white;
         background-color: #2D9CDB;
       }
