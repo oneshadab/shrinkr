@@ -12,6 +12,7 @@
       class="status--shrinking"
       v-if="status === 'shrinking'"
     >
+      <img :src="spinnerIcon" />
       Shrinking...
     </button>
 
@@ -32,14 +33,24 @@
 </template>
 
 <script>
+import spinnerIcon from 'images/spinner.svg';
+
 export default {
   props: ['status', 'onShrink'],
+  data() {
+    return {
+      spinnerIcon
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .shrink-button {
   button {
+    display: flex;
+    align-items: center;
+
     min-width: 250px;
 
     border-radius: 50px;
@@ -52,6 +63,10 @@ export default {
 
     &:focus {
       outline: none;
+    }
+
+    img {
+      height: 40px;
     }
 
     &.status {
