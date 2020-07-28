@@ -50,6 +50,7 @@ export default {
   button {
     display: flex;
     align-items: center;
+    gap: 12px;
 
     min-width: 250px;
 
