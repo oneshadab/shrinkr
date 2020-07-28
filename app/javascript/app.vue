@@ -6,7 +6,7 @@
         <h1>Shrinkr</h1>
       </div>
       <div class="url-input">
-        <input type="text" placeholder="Enter url here" v-model="url" @input="changed">
+        <input type="text" placeholder="Enter url here" v-model="url" @input="handleUrlChange">
       </div>
       <shrink-button :status="status" :on-shrink="handleShrink" />
     </div>
@@ -27,7 +27,10 @@ export default {
       this.status = "shrinking";
 
       try {
-        this.url =  await shrinkUrl(this.url);
+        const shortUrl = await shrinkUrl(this.url);
+        await navigator.clipboard.writeText(shortUrl);
+
+        this.url = shortUrl;
         this.status = "completed";
       }
       catch {
@@ -35,7 +38,7 @@ export default {
       }
     },
 
-    changed() {
+    handleUrlChange() {
       this.status = "idle";
     }
   },
