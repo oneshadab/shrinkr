@@ -1,6 +1,8 @@
 <template>
   <div class="shrink-button">
-    <button v-if="status === 'waiting'" v-on:click="onShrink()">Shrink</button>
+    <button v-if="status === 'idle'" v-on:click="onShrink()">Shrink</button>
+    <button v-if="status === 'shrinking'">Shrinking...</button>
+    <button v-if="status === 'completed'">Done!</button>
   </div>
 </template>
 

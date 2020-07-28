@@ -24,15 +24,19 @@ export default {
   ,
   methods: {
     async handleShrink() {
+      this.status = "shrinking";
+
       const newUrl = await shrinkUrl(this.url);
       this.url = newUrl;
+
+      this.status = "completed"
     }
   },
 
   data() {
     return {
       url: undefined,
-      status: "waiting",
+      status: "idle",
     }
   }
 }
