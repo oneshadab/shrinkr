@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import spinnerIcon from 'images/spinner.svg';
+import spinnerIcon from 'images/icons/spinner.svg';
 
 export default {
   props: ['status', 'onShrink'],
