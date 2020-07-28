@@ -26,10 +26,15 @@ export default {
     async handleShrink() {
       this.status = "shrinking";
 
-      const newUrl = await shrinkUrl(this.url);
-      this.url = newUrl;
+      try {
+        const newUrl = await shrinkUrl(this.url);
+        this.url = newUrl;
 
-      this.status = "completed"
+        this.status = "completed";
+      }
+      catch {
+        this.status = "failed";
+      }
     }
   },
 

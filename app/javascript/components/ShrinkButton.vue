@@ -2,7 +2,8 @@
   <div class="shrink-button">
     <button v-if="status === 'idle'" v-on:click="onShrink()">Shrink</button>
     <button v-if="status === 'shrinking'">Shrinking...</button>
-    <button v-if="status === 'completed'">Done!</button>
+    <button v-if="status === 'completed'">Url copied to clipboard!</button>
+    <button v-if="status === 'failed'">Something went wrong!</button>
   </div>
 </template>
 
