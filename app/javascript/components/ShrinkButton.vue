@@ -28,6 +28,7 @@
       class="status--failed"
       v-if="status === 'failed'"
     >
+      <img :src="alertIcon" />
       Something went wrong!
     </button>
   </div>
@@ -36,6 +37,7 @@
 <script>
 import spinnerIcon from 'images/icons/spinner.svg';
 import checkIcon from 'images/icons/check.svg';
+import alertIcon from 'images/icons/alert.svg';
 
 
 export default {
@@ -43,7 +45,8 @@ export default {
   data() {
     return {
       spinnerIcon,
-      checkIcon
+      checkIcon,
+      alertIcon
     }
   }
 }

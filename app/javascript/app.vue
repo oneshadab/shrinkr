@@ -46,7 +46,7 @@ export default {
   data() {
     return {
       url: '',
-      status: "completed",
+      status: "failed",
     }
   }
 }
