@@ -6,7 +6,7 @@
         <h1>Shrinkr</h1>
       </div>
       <div class="url-input">
-        <input type="text" placeholder="Enter url here" v-model="url">
+        <input type="text" placeholder="Enter url here" v-model="url" @input="changed">
       </div>
       <shrink-button :status="status" :on-shrink="handleShrink" />
     </div>
@@ -33,12 +33,16 @@ export default {
       catch {
         this.status = "failed";
       }
+    },
+
+    changed() {
+      this.status = "idle";
     }
   },
 
   data() {
     return {
-      url: undefined,
+      url: '',
       status: "idle",
     }
   }
