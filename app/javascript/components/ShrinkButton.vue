@@ -1,37 +1,35 @@
 <template>
-  <div class="shrink-button">
-    <button
-      class="status--idle"
+  <button
+    :class="['shrink-button', `status--${status}`]"
+  >
+    <span
       v-show="status === 'idle'"
       v-on:click="onShrink()"
     >
       Shrink
-    </button>
+    </span>
 
-    <button
-      class="status--shrinking"
+    <span
       v-show="status === 'shrinking'"
     >
       <img :src="spinnerIcon" />
       Shrinking...
-    </button>
+    </span>
 
-    <button
-      class="status--completed"
+    <span
       v-show="status === 'completed'"
     >
       <img :src="checkIcon" />
       Url copied to clipboard!
-    </button>
+    </span>
 
-    <button
-      class="status--failed"
+    <span
       v-show="status === 'failed'"
     >
       <img :src="alertIcon" />
       Something went wrong!
-    </button>
-  </div>
+    </span>
+  </button>
 </template>
 
 <script>
@@ -53,57 +51,54 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.shrink-button {
-  button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
+button.shrink-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 
-    min-width: 250px;
+  min-width: 250px;
 
-    border-radius: 50px;
-    border: none;
+  border-radius: 50px;
+  border: none;
 
-    font-family: SquadaOne;
-    font-size: 40px;
+  font-family: SquadaOne;
+  font-size: 40px;
 
-    padding: 8px 32px;
+  padding: 8px 32px;
 
-    &:focus {
-      outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 
-    img {
+  img {
+    color: white;
+    height: 32px;
+  }
+
+  &.status {
+    &--idle {
+      &:hover {
+        cursor: pointer;
+      }
+
       color: white;
-      height: 32px;
+      background-color: #2D9CDB;
     }
 
-    &.status {
+    &--shrinking {
+      color: white;
+      background-color: #a4d4f0;
+    }
 
-      &--idle {
-        &:hover {
-          cursor: pointer;
-        }
+    &--completed {
+      color: white;
+      background-color: #2ddb70;
+    }
 
-        color: white;
-        background-color: #2D9CDB;
-      }
-
-      &--shrinking {
-        color: white;
-        background-color: #a4d4f0;
-      }
-
-      &--completed {
-        color: white;
-        background-color: #2ddb70;
-      }
-
-      &--failed {
-        color: white;
-        background-color: #db412d;
-      }
+    &--failed {
+      color: white;
+      background-color: #db412d;
     }
   }
 }
