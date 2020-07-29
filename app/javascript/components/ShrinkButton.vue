@@ -5,6 +5,7 @@
       v-show="status === 'idle'"
       v-on:click="onShrink()"
     >
+      <img :src="shrinkIcon" />
       Shrink
     </button>
 
@@ -35,6 +36,7 @@
 </template>
 
 <script>
+import shrinkIcon from 'images/icons/shrink.svg';
 import spinnerIcon from 'images/icons/spinner.svg';
 import checkIcon from 'images/icons/check.svg';
 import alertIcon from 'images/icons/alert.svg';
@@ -44,9 +46,10 @@ export default {
   props: ['status', 'onShrink'],
   data() {
     return {
+      shrinkIcon,
       spinnerIcon,
       checkIcon,
-      alertIcon
+      alertIcon,
     }
   }
 }
@@ -56,6 +59,7 @@ export default {
 .shrink-button {
   button {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 12px;
 
@@ -75,7 +79,7 @@ export default {
 
     img {
       color: white;
-      height: 40px;
+      height: 32px;
     }
 
     &.status {
