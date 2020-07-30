@@ -1,30 +1,15 @@
 
-@mixin animation--fadein-from-top {
-  animation-name: fadein-from-top;
+@mixin animation--fadein($x, $y, $z) {
+  $animation-name: fadein-#{unique-id()};
+
+  animation-name: $animation-name;
   animation-duration: 1s;
   animation-fill-mode: both;
 
-	@keyframes fadein-from-top {
+	@keyframes #{$animation-name} {
 		0% {
 			opacity: 0;
-			transform: translate3d(0, -100%, 0);
-		}
-		100% {
-			opacity: 1;
-			transform: none;
-		}
-	}
-}
-
-@mixin animation--fadein-from-bottom {
-  animation-name: fadein-from-bottom;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-
-	@keyframes fadein-from-bottom {
-		0% {
-			opacity: 0;
-			transform: translate3d(0, 100%, 0);
+			transform: translate3d($x, $y, $z);
 		}
 		100% {
 			opacity: 1;
