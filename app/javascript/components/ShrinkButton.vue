@@ -1,4 +1,5 @@
 <template>
+
   <button
     :class="['shrink-button', `status--${status}`]"
   >
@@ -58,6 +59,13 @@ button.shrink-button {
   gap: 12px;
 
   min-width: 250px;
+  width: 100%;
+  transition: max-width .5s;
+
+  max-height: 56px;
+  white-space: nowrap;
+  overflow: hidden;
+
 
   border-radius: 50px;
   border: none;
@@ -84,21 +92,29 @@ button.shrink-button {
 
       color: white;
       background-color: #2D9CDB;
+
+      max-width: 300px;
     }
 
     &--shrinking {
       color: white;
       background-color: #a4d4f0;
+
+      max-width: 400px;
     }
 
     &--completed {
       color: white;
       background-color: #2ddb70;
+
+      max-width: 500px;
     }
 
     &--failed {
       color: white;
       background-color: #db412d;
+
+      max-width: 500px;
     }
   }
 }
