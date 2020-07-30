@@ -73,7 +73,7 @@ export default {
   width: 100vw;
 
   .logo {
-    @include animation--fadein-from-top;
+    @include animation--fadein(0, -100%, 0);
 
     margin-bottom: 64px;
 
@@ -87,7 +87,7 @@ export default {
   }
 
   .url-input {
-    @include animation--fadein-from-bottom;
+    @include animation--fadein(0, 100%, 0);
 
     input {
       font-size: 30px;
@@ -108,7 +108,7 @@ export default {
   }
 
   .shrink-button {
-    @include animation--fadein-from-bottom;
+    @include animation--fadein(0, 150%, 0);
   }
 }
 </style>
