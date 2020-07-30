@@ -39,7 +39,8 @@ export default {
         this.url = shortUrl;
         this.status = "completed";
       }
-      catch {
+      catch (err) {
+        console.error(err);
         this.status = "failed";
       }
     },
