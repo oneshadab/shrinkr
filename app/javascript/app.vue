@@ -12,7 +12,7 @@
           v-model="url"
           @input="handleUrlChange"
           :readonly="status === 'shrinking'"
-        >
+        />
       </div>
       <shrink-button :status="status" :on-shrink="handleShrink" />
     </div>
@@ -20,14 +20,13 @@
 </template>
 
 <script>
-import ShrinkButton from './components/ShrinkButton.vue';
-import { shrinkUrl } from './service';
+import ShrinkButton from "./components/ShrinkButton.vue";
+import { shrinkUrl } from "./service";
 
 export default {
-  components:{
-    'shrink-button': ShrinkButton
-  }
-  ,
+  components: {
+    "shrink-button": ShrinkButton
+  },
   methods: {
     async handleShrink() {
       this.status = "shrinking";
@@ -38,8 +37,7 @@ export default {
 
         this.url = shortUrl;
         this.status = "completed";
-      }
-      catch (err) {
+      } catch (err) {
         console.error(err);
         this.status = "failed";
       }
@@ -52,14 +50,16 @@ export default {
 
   data() {
     return {
-      url: '',
-      status: "idle",
-    }
+      url: "",
+      status: "idle"
+    };
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
+@import './styles/animations.scss';
+
 .home {
   font-family: SquadaOne;
 
@@ -73,6 +73,8 @@ export default {
   width: 100vw;
 
   .logo {
+    @include animation--fadein-from-top;
+
     margin-bottom: 64px;
 
     h1 {
@@ -85,6 +87,8 @@ export default {
   }
 
   .url-input {
+    @include animation--fadein-from-bottom;
+
     input {
       font-size: 30px;
       font-family: SquadaOne;
@@ -102,10 +106,9 @@ export default {
       }
     }
   }
+
+  .shrink-button {
+    @include animation--fadein-from-bottom;
+  }
 }
-
-
-
-
-
 </style>
