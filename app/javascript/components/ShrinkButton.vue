@@ -2,10 +2,10 @@
 
   <button
     :class="['shrink-button', `status--${status}`]"
+    v-on:click="handleClick"
   >
     <span
       v-show="status === 'idle'"
-      v-on:click="onShrink()"
     >
       Shrink
     </span>
@@ -46,6 +46,15 @@ export default {
       spinnerIcon,
       checkIcon,
       alertIcon,
+    }
+  },
+  methods: {
+    handleClick() {
+      if (this.status !== 'idle') {
+        return;
+      }
+
+      this.onShrink();
     }
   }
 }
