@@ -6,7 +6,13 @@
         <h1>Shrinkr</h1>
       </div>
       <div class="url-input">
-        <input type="text" placeholder="Enter url here" v-model="url" @input="handleUrlChange">
+        <input
+          type="text"
+          placeholder="Enter url here"
+          v-model="url"
+          @input="handleUrlChange"
+          :readonly="status === 'shrinking'"
+        >
       </div>
       <shrink-button :status="status" :on-shrink="handleShrink" />
     </div>
