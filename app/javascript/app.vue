@@ -13,6 +13,7 @@
           @input="handleUrlChange"
           :readonly="status === 'shrinking'"
         />
+        <icon name="alert" />
       </div>
       <shrink-button :status="status" :on-shrink="handleShrink" />
     </div>
@@ -22,10 +23,12 @@
 <script>
 import ShrinkButton from "./components/ShrinkButton.vue";
 import { shrinkUrl } from "./service";
+import Icon from './components/Icon';
 
 export default {
   components: {
-    "shrink-button": ShrinkButton
+    "shrink-button": ShrinkButton,
+    "icon": Icon,
   },
   methods: {
     async handleShrink() {
