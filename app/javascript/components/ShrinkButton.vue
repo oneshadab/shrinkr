@@ -1,31 +1,31 @@
 <template>
 
   <button
-    :class="['shrink-button', `status--${status}`]"
+    :class="['shrink-button', `state--${state}`]"
     v-on:click="handleClick"
   >
     <span
-      v-show="status === 'idle'"
+      v-show="state === 'idle'"
     >
       Shrink
     </span>
 
     <span
-      v-show="status === 'shrinking'"
+      v-show="state === 'shrinking'"
     >
       <icon name="spinner" />
       Shrinking...
     </span>
 
     <span
-      v-show="status === 'completed'"
+      v-show="state === 'completed'"
     >
       <icon name="check" />
       Url copied to clipboard!
     </span>
 
     <span
-      v-show="status === 'failed'"
+      v-show="state === 'failed'"
     >
       <icon name="alert" />
       Something went wrong!
@@ -38,13 +38,13 @@ import Icon from './Icon.vue';
 
 
 export default {
-  props: ['status', 'onShrink'],
+  props: ['state', 'onShrink'],
   components: {
     'icon': Icon
   },
   methods: {
     handleClick() {
-      if (this.status !== 'idle') {
+      if (this.state !== 'idle') {
         return;
       }
 
@@ -89,7 +89,7 @@ button.shrink-button {
 
   }
 
-  &.status {
+  &.state {
     &--idle {
       &:hover {
         cursor: pointer;

@@ -11,11 +11,11 @@
           placeholder="Enter url here"
           v-model="url"
           @input="handleUrlChange"
-          :readonly="status === 'shrinking'"
+          :readonly="state === 'shrinking'"
         />
-        <status-icon />
+        <status-icon :status="urlStatus" />
       </div>
-      <shrink-button :status="status" :on-shrink="handleShrink" />
+      <shrink-button :state="state" :on-shrink="handleShrink" />
     </div>
   </div>
 </template>
@@ -33,29 +33,38 @@ export default {
   },
   methods: {
     async handleShrink() {
-      this.status = "shrinking";
+      this.state = "shrinking";
 
       try {
         const shortUrl = await shrinkUrl(this.url);
         await navigator.clipboard.writeText(shortUrl);
 
         this.url = shortUrl;
-        this.status = "completed";
+        this.state = "completed";
       } catch (err) {
         console.error(err);
-        this.status = "failed";
+        this.state = "failed";
       }
     },
 
     handleUrlChange() {
-      this.status = "idle";
+      this.state = "idle";
+    }
+  },
+
+  computed: {
+    urlStatus() {
+      if (this.url === 'test') {
+        return "success";
+      }
+      return "error";
     }
   },
 
   data() {
     return {
       url: "",
-      status: "idle"
+      state: "idle",
     };
   }
 };
