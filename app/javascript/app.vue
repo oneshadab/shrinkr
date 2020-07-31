@@ -13,9 +13,7 @@
           @input="handleUrlChange"
           :readonly="status === 'shrinking'"
         />
-        <tooltip class="info-button" message="That doesn't look like a valid url">
-          <icon name="alert" color="#FFC924" size="24" />
-        </tooltip>
+        <status-icon />
       </div>
       <shrink-button :status="status" :on-shrink="handleShrink" />
     </div>
@@ -23,16 +21,15 @@
 </template>
 
 <script>
-import ShrinkButton from "./components/ShrinkButton.vue";
 import { shrinkUrl } from "./service";
-import Icon from './components/Icon';
-import Tooltip from './components/Tooltip';
+
+import ShrinkButton from "./components/ShrinkButton.vue";
+import StatusIcon from './components/StatusIcon';
 
 export default {
   components: {
     "shrink-button": ShrinkButton,
-    "icon": Icon,
-    "tooltip": Tooltip,
+    "status-icon": StatusIcon,
   },
   methods: {
     async handleShrink() {
@@ -123,7 +120,7 @@ export default {
     @include animation--fadein(0, 150%, 0);
   }
 
-  .info-button {
+  .status-icon {
     margin-left: -5%;
   }
 }
