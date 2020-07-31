@@ -33,7 +33,7 @@ export default {
   computed: {
     name() {
       const nameFor = {
-        success: 'check',
+        success: 'check-circled',
         warning: 'alert',
         error: 'alert',
       };
