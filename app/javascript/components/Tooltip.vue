@@ -1,7 +1,18 @@
 <template>
-  <div class="tooltip">
+  <div
+    class="tooltip"
+    @mouseenter="isHovering = true"
+    @mouseleave="isHovering = false"
+  >
     <slot></slot>
-    <span class="tooltip-message">{{message}}</span>
+    <span
+      :class="{
+        'tooltip-message': true ,
+        'is-visible': forceVisiblity || isHovering
+      }"
+    >
+      {{message}}
+    </span>
   </div>
 </template>
 
@@ -11,6 +22,15 @@ export default {
     message: {
       type: String,
       default: ""
+    },
+    forceVisiblity: {
+      type: Boolean,
+      default: false,
+    }
+  },
+  data() {
+    return {
+      isHovering: false,
     }
   }
 };
@@ -49,13 +69,9 @@ export default {
     }
   }
 
-
-
-  &:hover {
-    .tooltip-message {
-      visibility: visible;
-      opacity: 1;
-    }
+  .is-visible {
+    visibility: visible;
+    opacity: 1;
   }
 }
 </style>
