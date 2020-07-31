@@ -15,7 +15,6 @@ export default {
     },
     color: {
       type: String,
-      default: '#ffffff'
     }
   },
 
@@ -38,6 +37,7 @@ span {
 
   height: var(--size);
   width: var(--size);
+  color: var(--color);
 }
 
 span >>> svg {
@@ -46,6 +46,6 @@ span >>> svg {
 }
 
 span >>> svg path {
-  fill: var(--color);
+  fill: currentColor;
 }
 </style>

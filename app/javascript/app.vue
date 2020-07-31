@@ -26,11 +26,11 @@
 
 <script>
 
-import service from "./service";
-import utils from './utils';
+import service from "@app/service";
+import utils from '@app/utils';
 
-import ShrinkButton from "./components/ShrinkButton.vue";
-import StatusIcon from './components/StatusIcon';
+import ShrinkButton from "@app/components/ShrinkButton.vue";
+import StatusIcon from '@app/components/StatusIcon';
 
 export default {
   components: {
@@ -95,7 +95,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import './styles/animations.scss';
+@import '@app/styles/animations.scss';
+@import '@app/styles/variables.scss';
 
 .home {
   font-family: SquadaOne;
@@ -105,7 +106,7 @@ export default {
   align-items: center;
   flex-direction: column;
 
-  background-color: #333333;
+  background-color: $gray;
   height: 100vh;
   width: 100vw;
 

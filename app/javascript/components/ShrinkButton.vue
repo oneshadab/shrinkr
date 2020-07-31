@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import Icon from './Icon.vue';
+import Icon from '@app/components/Icon.vue';
 
 
 export default {
@@ -49,6 +49,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@app/styles/variables.scss';
+
 button.shrink-button {
   display: flex;
   justify-content: center;
@@ -90,28 +92,28 @@ button.shrink-button {
       }
 
       color: white;
-      background-color: #2D9CDB;
+      background-color: $blue;
 
       max-width: 300px;
     }
 
     &--shrinking {
       color: white;
-      background-color: #a4d4f0;
+      background-color: $lightBlue;
 
       max-width: 400px;
     }
 
     &--completed {
       color: white;
-      background-color: #2ddb70;
+      background-color: $green;
 
       max-width: 500px;
     }
 
     &--failed {
       color: white;
-      background-color: #db412d;
+      background-color: $red;
 
       max-width: 500px;
     }

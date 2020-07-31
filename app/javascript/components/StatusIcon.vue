@@ -4,13 +4,13 @@
     message="That doesn't look like a valid url"
     :forceVisiblity="forceMessageVisibility"
   >
-    <icon :name="name" :color="color" :size="24" />
+    <icon :class="[`status-${status}`]" :name="name" :size="24" />
   </tooltip>
 </template>
 
 <script>
-import Icon from './Icon';
-import Tooltip from './Tooltip';
+import Icon from '@app/components/Icon';
+import Tooltip from '@app/components/Tooltip';
 
 
 export default {
@@ -31,14 +31,6 @@ export default {
   },
 
   computed: {
-    color() {
-      const colorFor = {
-        success: 'green',
-        warning: 'gray',
-        error: 'red',
-      };
-      return colorFor[this.status];
-    },
     name() {
       const nameFor = {
         success: 'check',
@@ -51,6 +43,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@app/styles/variables.scss';
+
+.status-success {
+  color: $green;
+}
+
+.status-warning {
+  color: $gray;
+}
+
+.status-error {
+  color: $red;
+}
 
 </style>
