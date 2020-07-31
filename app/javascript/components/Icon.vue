@@ -43,7 +43,9 @@ span {
 span >>> svg {
   height: var(--size);
   width: var(--size);
+}
 
+span >>> svg path {
   fill: var(--color);
 }
 </style>
