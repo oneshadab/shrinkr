@@ -1,4 +1,3 @@
-
 <template>
   <div id="app">
     <div class="home">
@@ -26,7 +25,9 @@
 </template>
 
 <script>
-import { shrinkUrl } from "./service";
+
+import service from "./service";
+import utils from './utils';
 
 import ShrinkButton from "./components/ShrinkButton.vue";
 import StatusIcon from './components/StatusIcon';
@@ -50,7 +51,7 @@ export default {
       this.state = "shrinking";
 
       try {
-        const shortUrl = await shrinkUrl(this.url);
+        const shortUrl = await service.shrinkUrl(this.url);
         await navigator.clipboard.writeText(shortUrl);
 
         this.url = shortUrl;
@@ -69,7 +70,7 @@ export default {
 
   computed: {
     urlStatus() {
-      const isValidUrl = (this.url === 'test') // Check valid url here
+      const isValidUrl = utils.isValidUrl(this.url) // Check valid url here
 
       if (!isValidUrl && this.attempts === 0) {
         return 'warning';
