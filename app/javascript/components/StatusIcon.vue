@@ -1,5 +1,9 @@
 <template>
-  <tooltip class="status-icon" message="That doesn't look like a valid url">
+  <tooltip
+    class="status-icon"
+    message="That doesn't look like a valid url"
+    :forceVisiblity="forceMessageVisibility"
+  >
     <icon :name="name" :color="color" :size="24" />
   </tooltip>
 </template>
@@ -19,6 +23,10 @@ export default {
     status: {
       type: String,
       default: "success"
+    },
+    forceMessageVisibility: {
+      type: Boolean,
+      default: false,
     }
   },
 

@@ -13,7 +13,12 @@
           @input="handleUrlChange"
           :readonly="state === 'shrinking'"
         />
-        <status-icon :status="urlStatus" v-visible="url !== '' || urlStatus === 'error'" />
+        <status-icon
+          v-visible="url !== '' || urlStatus === 'error'"
+
+          :status="urlStatus"
+          :force-message-visibility="urlStatus === 'error'"
+        />
       </div>
       <shrink-button :state="state" @click="handleShrink" />
     </div>
