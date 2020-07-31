@@ -65,7 +65,6 @@ button.shrink-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
 
   min-width: 250px;
   width: 100%;
@@ -88,9 +87,12 @@ button.shrink-button {
     outline: none;
   }
 
-  img {
-    color: white;
-    height: 32px;
+  span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
   }
 
   &.status {
