@@ -13,7 +13,7 @@
           @input="handleUrlChange"
           :readonly="status === 'shrinking'"
         />
-        <icon name="alert" />
+        <icon class="info-button" name="alert" color="#FFC924" size="24" />
       </div>
       <shrink-button :status="status" :on-shrink="handleShrink" />
     </div>
@@ -92,17 +92,22 @@ export default {
   .url-input {
     @include animation--fadein(0, 100%, 0);
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 16px;
+
+
     input {
       font-size: 30px;
       font-family: SquadaOne;
 
       border-radius: 50px;
 
-      padding: 15px 25px;
+      padding: 15px 35px 15px 30px;
 
       min-width: 600px;
-
-      margin-bottom: 16px;
 
       &:focus {
         outline: none;
@@ -112,6 +117,10 @@ export default {
 
   .shrink-button {
     @include animation--fadein(0, 150%, 0);
+  }
+
+  .info-button {
+    margin-left: -5%;
   }
 }
 </style>
