@@ -47,15 +47,16 @@ export default {
     bottom: 125%;
     color: #fff;
     left: 50%;
-    margin-left: -60px;
+    margin-left: -88px;
     opacity: 0;
-    padding: 5px 0;
+    padding: 6px 11px;
     position: absolute;
     text-align: center;
     transition: opacity 0.3s;
     visibility: hidden;
-    width: 120px;
+    width: 154px;
     z-index: 1;
+    font-size: 21px;
 
     &::after {
       content: "";
