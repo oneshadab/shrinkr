@@ -13,40 +13,34 @@
     <span
       v-show="status === 'shrinking'"
     >
-      <img :src="spinnerIcon" />
+      <icon name="spinner" />
       Shrinking...
     </span>
 
     <span
       v-show="status === 'completed'"
     >
-      <img :src="checkIcon" />
+      <icon name="check" />
       Url copied to clipboard!
     </span>
 
     <span
       v-show="status === 'failed'"
     >
-      <img :src="alertIcon" />
+      <icon name="alert" />
       Something went wrong!
     </span>
   </button>
 </template>
 
 <script>
-import spinnerIcon from 'images/icons/spinner.svg';
-import checkIcon from 'images/icons/check.svg';
-import alertIcon from 'images/icons/alert.svg';
+import Icon from './Icon.vue';
 
 
 export default {
   props: ['status', 'onShrink'],
-  data() {
-    return {
-      spinnerIcon,
-      checkIcon,
-      alertIcon,
-    }
+  components: {
+    'icon': Icon
   },
   methods: {
     handleClick() {
