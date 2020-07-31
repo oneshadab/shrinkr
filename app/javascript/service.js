@@ -7,6 +7,6 @@ async function shrinkUrl(url) {
   return res.data;
 }
 
-export {
+export default {
   shrinkUrl
 }
