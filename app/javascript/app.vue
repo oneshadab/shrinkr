@@ -13,7 +13,7 @@
           @input="handleUrlChange"
           :readonly="state === 'shrinking'"
         />
-        <status-icon :status="urlStatus" />
+        <status-icon :status="urlStatus" v-visible="url !== '' || urlStatus === 'error'" />
       </div>
       <shrink-button :state="state" @click="handleShrink" />
     </div>
@@ -33,6 +33,15 @@ export default {
   },
   methods: {
     async handleShrink() {
+      if (this.state !== 'idle') {
+        return;
+      }
+
+      if (this.urlStatus !== 'success') {
+        this.attempts += 1;
+        return;
+      }
+
       this.state = "shrinking";
 
       try {
@@ -49,15 +58,23 @@ export default {
 
     handleUrlChange() {
       this.state = "idle";
-    }
+      this.attempts = 0;
+    },
   },
 
   computed: {
     urlStatus() {
-      if (this.url === 'test') {
-        return "success";
+      const isValidUrl = (this.url === 'test') // Check valid url here
+
+      if (!isValidUrl && this.attempts === 0) {
+        return 'warning';
       }
-      return "error";
+
+      if (!isValidUrl && this.attempts >= 1) {
+        return 'error';
+      }
+
+      return 'success';
     }
   },
 
@@ -65,6 +82,7 @@ export default {
     return {
       url: "",
       state: "idle",
+      attempts: 0,
     };
   }
 };
