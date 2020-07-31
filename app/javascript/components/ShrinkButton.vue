@@ -1,8 +1,7 @@
 <template>
-
   <button
     :class="['shrink-button', `state--${state}`]"
-    v-on:click="handleClick"
+    @click="$emit('click')"
   >
     <span
       v-show="state === 'idle'"
@@ -38,19 +37,14 @@ import Icon from './Icon.vue';
 
 
 export default {
-  props: ['state', 'onShrink'],
+  props: {
+    state: {
+      type: String
+    },
+  },
   components: {
     'icon': Icon
   },
-  methods: {
-    handleClick() {
-      if (this.state !== 'idle') {
-        return;
-      }
-
-      this.onShrink();
-    }
-  }
 }
 </script>
 

@@ -15,7 +15,7 @@
         />
         <status-icon :status="urlStatus" />
       </div>
-      <shrink-button :state="state" :on-shrink="handleShrink" />
+      <shrink-button :state="state" @click="handleShrink" />
     </div>
   </div>
 </template>
