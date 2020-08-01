@@ -47,7 +47,7 @@ export default {
 @import '@app/styles/variables.scss';
 
 .status-success {
-  color: $green;
+  color: $darkGreen;
 }
 
 .status-warning {
