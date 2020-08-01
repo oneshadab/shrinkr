@@ -1,24 +1,32 @@
-# README
+<p align="center">
+  <img src="docs/logo.png">
+</p>
+<hr>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple url shortener built on top of Rails and Vue.js
 
-Things you may want to cover:
+### Demo
 
-* Ruby version
+[Live Demo](www.shrinkr.xyz)
 
-* System dependencies
+### Dependencies
+- PostgreSQL 12
+- Rail 6
+- Ruby 2.7
+- Vue.js 2.6
 
-* Configuration
+### Local development
+1. Clone repo
+2. cd into project directory
+3. Ensure PostgreSQL is listening on port `5433`
+4. Execute `runner.sh` in dev mode:
+```sh
+./runner.sh --dev
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Deploying to production
+1. Push repo to production
+2. Execute `runner.sh` in prod mode:
+```sh
+./runner.sh --prod
+```
