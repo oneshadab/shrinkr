@@ -52,10 +52,10 @@ export default {
 
       try {
         const shortUrl = await service.shrinkUrl(this.url);
-        await navigator.clipboard.writeText(shortUrl);
-
         this.url = shortUrl;
         this.state = "completed";
+
+        this.copyUrlToClipboard();
       } catch (err) {
         console.error(err);
         this.state = "failed";
@@ -66,6 +66,16 @@ export default {
       this.state = "idle";
       this.attempts = 0;
     },
+
+    async copyUrlToClipboard() {
+      try {
+        throw new err;
+        await navigator.clipboard.writeText(shortUrl);
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }
   },
 
   computed: {
