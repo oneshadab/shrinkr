@@ -81,8 +81,10 @@ button.shrink-button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
 
+    span {
+      margin-right: 12px;
+    }
   }
 
   &:hover {
