@@ -85,11 +85,12 @@ button.shrink-button {
 
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &.state {
     &--idle {
-      &:hover {
-        cursor: pointer;
-      }
 
       color: white;
       background-color: $blue;
