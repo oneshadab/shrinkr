@@ -1,6 +1,7 @@
 #!/bin/bash
 
 function setup() {
+  rake db:migrate
   yarn
 }
 
