@@ -1,7 +1,7 @@
 <template>
   <tooltip
     class="status-icon"
-    message="That doesn't look like a valid url"
+    :message="message"
     :forceVisiblity="forceMessageVisibility"
   >
     <icon :class="[`status-${status}`]" :name="name" :size="24" />
@@ -38,6 +38,15 @@ export default {
         error: 'alert',
       };
       return nameFor[this.status];
+    },
+
+    message() {
+      const messageFor = {
+        success: "",
+        warning: "That doesn't look like a valid url",
+        error: "That doesn't look like a valid url",
+      }
+      return messageFor[this.status];
     }
   }
 }

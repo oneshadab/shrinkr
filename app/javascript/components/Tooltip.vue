@@ -8,7 +8,7 @@
     <span
       :class="{
         'tooltip-message': true ,
-        'is-visible': forceVisiblity || isHovering
+        'is-visible': isTooltipVisible
       }"
     >
       {{message}}
@@ -31,6 +31,19 @@ export default {
   data() {
     return {
       isHovering: false,
+    }
+  },
+  computed: {
+    isTooltipVisible() {
+      if (this.message === "") {
+        return false;
+      }
+
+      if (this.forceVisiblity) {
+        return true;
+      }
+
+      return this.isHovering;
     }
   }
 };
