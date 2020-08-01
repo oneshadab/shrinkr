@@ -55,7 +55,7 @@ export default {
         this.url = shortUrl;
         this.state = "completed";
 
-        this.copyUrlToClipboard();
+        await this.copyUrlToClipboard();
       } catch (err) {
         console.error(err);
         this.state = "failed";
@@ -69,8 +69,7 @@ export default {
 
     async copyUrlToClipboard() {
       try {
-        throw new err;
-        await navigator.clipboard.writeText(shortUrl);
+        await navigator.clipboard.writeText(this.url);
       }
       catch (err) {
         console.log(err);
