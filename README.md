@@ -9,6 +9,10 @@ A simple url shortener built on top of Rails and Vue.js
 
 [Live Demo](www.shrinkr.xyz)
 
+<p align="center">
+  <img src="docs/screenshot.png">
+</p>
+
 ### Dependencies
 - PostgreSQL 12
 - Rail 6
