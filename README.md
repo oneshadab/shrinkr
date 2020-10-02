@@ -19,7 +19,7 @@ A simple url shortener built on top of Rails and Vue.js
 - Ruby 2.7
 - Vue.js 2.6
 
-### Local development
+### Setting up local development
 1. Clone repo
 2. cd into project directory
 3. Ensure PostgreSQL is listening on port `5433`
